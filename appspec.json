@@ -1,0 +1,18 @@
+{
+  "settings": [
+  
+  ],
+  "dependencies": {
+    "R": [
+      {
+        "name": "move"
+      },
+      {
+        "name": "shiny"
+      },
+      {
+        "name": "leaflet"
+      }
+    ]
+  }
+}
