@@ -23,6 +23,7 @@ shinyModule <- function(input, output, session, data) {
   
   ID <- namesIndiv(data)
   COL <- rainbow(n=length(ID))
+  data_spl <- move::split(data)
 
   output$leafmap <- renderLeaflet({
     bounds <- as.vector(bbox(extent(dataObj())))
@@ -35,8 +36,8 @@ shinyModule <- function(input, output, session, data) {
       for (i in seq(along=ID))
         {
           outl <- outl %>%
-            addPolylines(data = coordinates(data[namesIndiv(data)==ID[i],]), color = COL[i], group = ID[i], weight=2) %>%
-            addCircles(data = data[namesIndiv(data)==ID[i],], fillOpacity = 0.3, opacity = 0.5, color = COL[i], group = ID[i])
+            addPolylines(data = coordinates(data_spl[[i]]), color = COL[i], group = ID[i], weight=2) %>%
+            addCircles(data = data_spl[[i]], fillOpacity = 0.3, opacity = 0.5, color = COL[i], group = ID[i])
         }
       
       outl <- outl %>%
@@ -56,5 +57,5 @@ shinyModule <- function(input, output, session, data) {
 }
 
 
-# comment: package leaftime could be an option, but it seems not yet possible to control it with different layers
+# comment: package leaftime could be an option for time slider, but it seems not yet possible to control it with different layers
 
