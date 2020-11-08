@@ -2,7 +2,7 @@ library(jsonlite)
 source("logger.R")
 source("ShinyModule.R")
 
-inputFileName = "input_RoostsMoveApps.rds"
+inputFileName = "input_lowres_geese_74X.rds"
 outputFileName = "output.rds"
 
 if(file.exists("configuration.json")) {
@@ -22,7 +22,7 @@ if(file.exists("configuration.json")) {
 #    args[["password"]] = "any-password"
 
 # Add your arguments of your r function here
-#args[["grid"]] <- 50000
+args[["thinoption"]] <- '1hour'
 
 #################################################################
 #################################################################
